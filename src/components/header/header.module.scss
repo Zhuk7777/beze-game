@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-pink;
+  padding: 14px 24px;
+
+  @media (min-width: $breakpoint-tablet) {
+    justify-content: center;
+    padding-block: 22px;
+  }
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+
+  @media (min-width: $breakpoint-tablet) {
+    gap: 22px;
+  }
+}
+
+.pyatnitsaLogo {
+  content: url('/src/assets/icons/pyatnitsa.svg');
+
+  @media (min-width: $breakpoint-tablet) {
+    content: url('/src/assets/icons/pyatnitsaFull.svg');
+  }
+}
+
+.verticalDivider {
+  inline-size: 2px;
+  block-size: 28px;
+  background-color: white;
+
+  @media (min-width: $breakpoint-tablet) {
+    background-color: $color-light-pink;
+    inline-size: 3px;
+  }
+}
+
+.samokatLogo {
+  @media (min-width: $breakpoint-tablet) {
+    inline-size: 164px;
+    block-size: 24px;
+  }
+}
+
+.menuButton {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.menuIcon {
+  content: url('/src/assets/icons/burgerMenu.svg');
+
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+}

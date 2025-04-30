@@ -1,9 +1,17 @@
-// font
+// fonts
 $fw-normal: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-// color
-$accent-color: #ff335f;
-$text-color: #333;
-$background-color: #ef3a62;
+// colors
+$color-pink: #ff335f;
+$color-charcoal: #333;
+$color-raspberry: #ef3a62;
+$color-light-pink: #ffd1e8;
+$color-dark-grey: #1a1a1a;
+$color-soft-white: #ffffff80;
+
+// breakpoints
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1200px;
+$breakpoint-large: 1920px;

@@ -1,0 +1,18 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  block-size: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+  background: radial-gradient(
+    100% 99.01% at left top,
+    rgb(230 154 193 / 0) 0%,
+    rgb(255 209 233 / 1) 100%
+  );
+
+  @media (min-width: $breakpoint-tablet) {
+    background: rgb(255 209 233 / 1);
+  }
+}

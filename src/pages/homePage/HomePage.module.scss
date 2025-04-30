@@ -1,0 +1,161 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  align-items: center;
+  gap: 48px;
+  background-image: url('../../assets/images/cakesDesktop.webp');
+  background-repeat: no-repeat;
+  background-position: center 70%;
+  background-size: cover;
+
+  @media (max-width: $breakpoint-tablet - 1) {
+    background-image: url('../../assets/images/cakes.webp');
+    background-position: center 62%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inline-size: 23px;
+      block-size: 23px;
+      top: 46px;
+      left: 9px;
+      background-image: url('../../assets/images/sprinkleRed.webp');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    gap: 120px;
+  }
+}
+
+.logo {
+  margin-block-start: 40px;
+
+  @media (min-width: $breakpoint-large) {
+    inline-size: 449px;
+    block-size: 196px;
+    margin-block-start: 97px;
+  }
+}
+
+.title {
+  color: $color-pink;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.title_primary {
+  font-weight: $fw-bold;
+  font-size: 20px;
+  max-inline-size: 926px;
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 48px;
+  }
+}
+
+.title_secondary {
+  font-weight: $fw-bold;
+  font-size: 20px;
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 40px;
+  }
+}
+
+.actionPlan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-inline-size: 720px;
+  font-size: 16px;
+
+  @media (max-width: $breakpoint-tablet - 1) {
+    &::before {
+      content: '';
+      position: absolute;
+      inline-size: 47px;
+      block-size: 36px;
+      top: -58px;
+      right: 0;
+      background-image: url('../../assets/images/sprinkleGold.webp');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 32px;
+    gap: 56px;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-inline: 16px;
+}
+
+.listItem {
+  display: flex;
+  gap: 11px;
+  align-items: start;
+  color: $color-charcoal;
+  line-height: 1.25;
+
+  @media (min-width: $breakpoint-large) {
+    gap: 41px;
+  }
+}
+
+.icon {
+  min-inline-size: 24px;
+  min-block-size: 24px;
+
+  @media (min-width: $breakpoint-large) {
+    min-inline-size: 48px;
+    min-block-size: 48px;
+  }
+}
+
+.register {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-block-start: 12px;
+  margin-block-end: 80px;
+
+  @media (max-width: $breakpoint-tablet - 1) {
+    &::before {
+      content: '';
+      position: absolute;
+      inline-size: 47px;
+      block-size: 36px;
+      top: -57px;
+      left: 17px;
+      background-image: url('../../assets/images/sprinkleGold.webp');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inline-size: 50px;
+      block-size: 58px;
+      top: 317px;
+      right: -14px;
+      background-image: url('../../assets/images/sprinkleWhite.webp');
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}

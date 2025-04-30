@@ -1,0 +1,29 @@
+.formInput {
+  border-radius: 25px;
+  border: 1px solid transparent;
+  padding: 15px 37px;
+  min-inline-size: 292px;
+  background-color: #fffc;
+  font-size: 16px;
+
+  &::placeholder {
+    color: #bdbdbd;
+  }
+
+  &::selection {
+    color: $color-light-pink;
+    background-color: $color-dark-grey;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    border-color: $color-pink;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 24px;
+  }
+}

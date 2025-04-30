@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  max-inline-size: 292px;
+}
+
+.checkbox {
+  margin-inline-start: 10px;
+}
+
+.button {
+  inline-size: 216px;
+  padding: 13px 70px;
+  font-size: 20px;
+  font-weight: $fw-bold;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  background-color: $color-pink;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  text-transform: uppercase;
+  margin-block-start: 3px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    transform: scale(1.05);
+  }
+}
