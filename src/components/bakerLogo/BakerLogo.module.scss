@@ -1,0 +1,9 @@
+.logo {
+  inline-size: 163px;
+  block-size: 73px;
+
+  @media (min-width: $breakpoint-large) {
+    inline-size: 449px;
+    block-size: 196px;
+  }
+}

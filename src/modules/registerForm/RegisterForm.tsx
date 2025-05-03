@@ -1,6 +1,7 @@
-import styles from './RegisterForm.module.scss';
-import { FormField } from '../../components/formField/FormField';
 import { Checkbox } from '../../components/checkbox/Checkbox';
+import { FormField } from '../../components/formField/FormField';
+
+import styles from './RegisterForm.module.scss';
 
 export const RegisterForm = () => {
   return (

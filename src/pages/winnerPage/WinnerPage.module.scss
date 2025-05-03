@@ -1,0 +1,27 @@
+.wrapper {
+  background-image: url('../../assets/images/bgWin.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  gap: 75px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-block-end: 41px;
+}
+
+.text {
+  color: $color-pink;
+  line-height: 1.25;
+  text-align: center;
+  font-weight: $fw-bold;
+  font-size: 20px;
+  max-inline-size: 600px;
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 48px;
+  }
+}

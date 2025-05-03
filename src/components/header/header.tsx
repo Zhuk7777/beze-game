@@ -1,5 +1,6 @@
-import styles from './header.module.scss';
 import SamokatLogo from '../../assets/icons/samokat.svg?react';
+
+import styles from './header.module.scss';
 
 export const Header = () => {
   return (

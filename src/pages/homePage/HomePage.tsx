@@ -1,19 +1,21 @@
-import BakerLogo from '../../assets/icons/baker.svg?react';
+import classNames from 'classnames';
+
+import QRCodeIcon from '../../assets/icons/qrCode.svg?react';
 import RegisterIcon from '../../assets/icons/register.svg?react';
 import TapIcon from '../../assets/icons/tap.svg?react';
-import QRCodeIcon from '../../assets/icons/qrCode.svg?react';
 import WinnerIcon from '../../assets/icons/winner.svg?react';
-import styles from './HomePage.module.scss';
+import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
 import { RegisterForm } from '../../modules/registerForm/RegisterForm';
-import classNames from 'classnames';
+
+import styles from './HomePage.module.scss';
 
 export const HomePage = () => {
   return (
-    <div className={styles.wrapper}>
-      <BakerLogo className={styles.logo} aria-label="Логитип Кондитер" />
+    <PageWrapper className={styles.wrapper}>
       <h1 className={classNames(styles.title, styles.title_primary)}>
-        Получи шанс выиграть 10&nbsp;000&nbsp;рублей на&nbsp;покупки
-        в&nbsp;приложении Самокат
+        <span className={styles.line}>Получи шанс выиграть </span>
+        <span className={styles.line}>10 000 рублей на покупки </span>
+        <span className={styles.line}> в приложении Самокат </span>
       </h1>
       <section className={styles.actionPlan}>
         <h2 className={classNames(styles.title, styles.title_secondary)}>
@@ -34,15 +36,18 @@ export const HomePage = () => {
           <li className={styles.listItem}>
             <QRCodeIcon className={styles.icon} aria-hidden="true" />
             <span>
-              Разломи безе полностью и&nbsp;отсканируй QR-код, который появится
-              в эфире
+              Разломи безе полностью
+              <br />и отсканируй QR-код, который появится в эфире
             </span>
           </li>
           <li className={styles.listItem}>
             <WinnerIcon className={styles.icon} aria-hidden="true" />
             <span>
-              Будь в числе первых 10 человек и получи 10 000 рублей
-              на&nbsp;покупки в приложении Самокат!
+              Будь в числе первых 10 человек
+              <br />
+              и получи 10 000 рублей
+              <br />
+              на покупки в приложении Самокат!
             </span>
           </li>
         </ul>
@@ -53,6 +58,6 @@ export const HomePage = () => {
         </h2>
         <RegisterForm />
       </section>
-    </div>
+    </PageWrapper>
   );
 };

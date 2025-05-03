@@ -1,5 +1,6 @@
-import styles from './footer.module.scss';
 import Logo from '../../assets/icons/pyatnitsaFull.svg?react';
+
+import styles from './footer.module.scss';
 
 export const Footer = () => {
   return (

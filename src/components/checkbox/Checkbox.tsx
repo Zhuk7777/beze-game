@@ -1,6 +1,7 @@
-import styles from './Checkbox.module.scss';
-import { PropsWithChildren } from 'react';
 import classNames from 'classnames';
+import { PropsWithChildren } from 'react';
+
+import styles from './Checkbox.module.scss';
 
 export interface ICheckboxProps {
   className?: string;

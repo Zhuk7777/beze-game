@@ -1,5 +1,6 @@
-import styles from './FormField.module.scss';
 import { HTMLInputTypeAttribute } from 'react';
+
+import styles from './FormField.module.scss';
 
 export interface IFormFieldProps {
   type: HTMLInputTypeAttribute;
