@@ -1,0 +1,138 @@
+.wrapper {
+  gap: 43px;
+}
+
+.imageWrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inline-size: 47px;
+    block-size: 36px;
+    top: -81px;
+    left: 11px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 40px;
+    block-size: 40px;
+    top: -143px;
+    right: 9px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.counter {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 36px 36px 0;
+  padding: 11px 15px;
+  block-size: 46px;
+  background-color: $color-pink;
+  color: white;
+  font-size: 16px;
+  font-weight: $fw-bold;
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 32px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 22px;
+    block-size: 22px;
+    top: 249px;
+    left: 10px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.button {
+  all: unset;
+  position: relative;
+  z-index: 0;
+  clip-path: circle(50%);
+  cursor: pointer;
+  padding-block: 5px;
+}
+
+.image {
+  cursor: pointer;
+  object-fit: cover;
+  transition: filter 0.3s;
+
+  &:hover {
+    filter: drop-shadow(0 0 10px white);
+  }
+}
+
+.text {
+  color: $color-pink;
+  font-size: 20px;
+  font-weight: $fw-bold;
+  text-align: center;
+  line-height: 1.25;
+  margin-block-start: -8px;
+
+  @media (min-width: $breakpoint-large) {
+    font-size: 40px;
+  }
+}
+
+.finalTextWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-inline-size: 282px;
+  padding-block-end: 24px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inline-size: 55px;
+    block-size: 55px;
+    top: -63px;
+    right: -16px;
+    background-image: url('../../assets/images/sprinkleWhite.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    gap: 60px;
+    max-inline-size: 500px;
+  }
+}
+
+.singleText {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 55px;
+    block-size: 55px;
+    top: 92px;
+    right: -22px;
+    background-image: url('../../assets/images/sprinkleWhite.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
