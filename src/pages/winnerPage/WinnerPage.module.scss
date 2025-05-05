@@ -11,6 +11,7 @@
   flex-direction: column;
   gap: 25px;
   margin-block-end: 41px;
+  animation: text-show 0.5s ease forwards;
 }
 
 .text {
@@ -23,5 +24,17 @@
 
   @media (min-width: $breakpoint-large) {
     font-size: 48px;
+  }
+}
+
+@keyframes text-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

@@ -39,7 +39,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 0 36px 36px 0;
-  padding: 11px 15px;
+  min-inline-size: 113px;
   block-size: 46px;
   background-color: $color-pink;
   color: white;
@@ -80,6 +80,15 @@
   clip-path: circle(50%);
   cursor: pointer;
   padding-block: 5px;
+  transition: transform 0.2s;
+
+  &:active {
+    transform: scale(1.02);
+
+    .image {
+      filter: drop-shadow(0 0 10px #cbcafe);
+    }
+  }
 
   &:focus-visible {
     .image {

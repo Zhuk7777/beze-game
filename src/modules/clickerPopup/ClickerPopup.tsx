@@ -17,8 +17,18 @@ export const ClickerPopup = ({
   return (
     <div className={classNames(className, styles.popupWrapper)}>
       <div className={styles.popup}>{children}</div>
-      <WowArrow className={styles.wowArrow} aria-hidden="true" />
-      <Arrow className={styles.arrow} aria-hidden="true" />
+      <WowArrow
+        className={styles.wowArrow}
+        width={55}
+        height={67}
+        aria-hidden="true"
+      />
+      <Arrow
+        className={styles.arrow}
+        width={41}
+        height={46}
+        aria-hidden="true"
+      />
     </div>
   );
 };

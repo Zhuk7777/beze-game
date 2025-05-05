@@ -3,35 +3,60 @@ import classNames from 'classnames';
 import { Beze } from '../../components/beze/Beze';
 import { ClickerPopup } from '../../modules/clickerPopup/ClickerPopup';
 import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
-import { PromoCodeButton } from '../../modules/promoCodeButton/PromoCodeButton.tsx';
+import { PromoCodeButton } from '../../modules/promoCodeButton/PromoCodeButton';
+import { usePromoStore } from '../../services/promoStore/promoStore';
 
 import styles from './InfoPage.module.scss';
 
 export const InfoPage = () => {
-  const discount = 10;
-  const final = false;
-  const lose = false;
+  const {
+    stageEndText,
+    reward,
+    status,
+    isPreFinalStage,
+    proceedToNextStage,
+    stopGame,
+  } = usePromoStore();
+
+  const promoButton = <PromoCodeButton discount={reward} onClick={stopGame} />;
+
+  const continueButton = (
+    <button
+      className={styles.button}
+      type="button"
+      onClick={proceedToNextStage}
+      disabled={status === 'game-end'}
+    >
+      Продолжить
+    </button>
+  );
+
   return (
     <PageWrapper className={styles.wrapper}>
       <section className={styles.imageWrapper}>
         <ClickerPopup className={styles.popup}>
           <div className={styles.popupText}>
-            <p>Молодец! Забирай промокод на скидку 10% в Самокат.</p>
             <p>
-              А если нажмёшь ещё 2000 раз, получишь промокод от Самокат на
-              скидку 20%
+              {status === 'game-lost'
+                ? 'К сожалению, кто-то отсканировал быстрее тебя…'
+                : stageEndText?.title}
+            </p>
+            <p>
+              {status === 'game-lost'
+                ? 'Но не расстраивайся! Самокат дарит тебе промокод на скидку 5%!'
+                : stageEndText?.next}
             </p>
           </div>
         </ClickerPopup>
         <Beze className={styles.image} />
       </section>
-      {lose ? (
+      {status === 'game-lost' ? (
         <section className={styles.options}>
-          <PromoCodeButton discount={discount} />
+          <PromoCodeButton discount={5} />
         </section>
-      ) : final ? (
+      ) : isPreFinalStage ? (
         <section className={classNames(styles.options, styles.options_final)}>
-          <PromoCodeButton discount={discount} />
+          {promoButton}
           <p className={styles.text}>
             Продолжай нажимать
             <br />
@@ -40,17 +65,13 @@ export const InfoPage = () => {
             <br />
             на покупки в приложении Самокат
           </p>
-          <button className={styles.button} type="button">
-            Продолжить
-          </button>
+          {continueButton}
         </section>
       ) : (
         <section className={classNames(styles.options, styles.options_common)}>
-          <button className={styles.button} type="button">
-            Продолжить
-          </button>
+          {continueButton}
           <span className={styles.or}>Или</span>
-          <PromoCodeButton discount={discount} />
+          {promoButton}
         </section>
       )}
     </PageWrapper>

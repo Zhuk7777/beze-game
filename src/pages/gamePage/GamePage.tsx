@@ -2,25 +2,26 @@ import classNames from 'classnames';
 
 import { Beze } from '../../components/beze/Beze';
 import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
+import { usePromoStore } from '../../services/promoStore/promoStore';
 
 import styles from './GamePage.module.scss';
 
 export const GamePage = () => {
-  const final = false;
-  const limit = 1000;
-  const count = 1000;
+  const { count, limit, reward, isFinalStage, increment } = usePromoStore();
 
   return (
     <PageWrapper className={styles.wrapper}>
       <div className={styles.imageWrapper}>
-        <div className={styles.counter}>
-          {count}/{limit}
-        </div>
-        <button className={styles.button}>
+        {!isFinalStage && (
+          <div className={styles.counter} aria-label="Счетчик">
+            {count}/{limit}
+          </div>
+        )}
+        <button className={styles.button} onClick={increment}>
           <Beze className={styles.image} />
         </button>
       </div>
-      {final ? (
+      {isFinalStage ? (
         <div className={classNames(styles.text, styles.finalTextWrapper)}>
           <p>
             Нажимай на безе!
@@ -38,8 +39,8 @@ export const GamePage = () => {
         </div>
       ) : (
         <p className={classNames(styles.text, styles.singleText)}>
-          Нажми на безе 1000 раз <br /> и получи промокод <br /> на скидку 10%
-          от Самокат
+          Нажми на безе {limit} раз <br /> и получи промокод <br /> на скидку{' '}
+          {reward}% от Самокат
         </p>
       )}
     </PageWrapper>

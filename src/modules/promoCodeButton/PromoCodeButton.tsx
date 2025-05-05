@@ -9,18 +9,24 @@ import {
   useInteractions,
   useRole,
 } from '@floating-ui/react';
-import { useState } from 'react';
+import { ButtonHTMLAttributes, MouseEventHandler, useState } from 'react';
 
 import SamokatLogo from '../../assets/icons/samokatLogoSmall.svg?react';
-import { PromoCode } from '../../components/promoCode/PromoCode.tsx';
+import { PromoCode } from '../../components/promoCode/PromoCode';
 
 import styles from './PromoCodeButton.module.scss';
 
-export interface IPromoCodeButtonProps {
-  discount: number;
+export interface IPromoCodeButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement> {
+  discount?: number;
+  onClick?: () => void;
 }
 
-export const PromoCodeButton = ({ discount }: IPromoCodeButtonProps) => {
+export const PromoCodeButton = ({
+  discount,
+  onClick,
+  ...rest
+}: IPromoCodeButtonProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { refs, context } = useFloating({
@@ -37,15 +43,25 @@ export const PromoCodeButton = ({ discount }: IPromoCodeButtonProps) => {
     role,
     dismiss,
   ]);
+  const { onClick: refOnClick, ...restReferenceProps } = getReferenceProps();
 
   const headingId = useId();
   const descriptionId = useId();
+
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (evt) => {
+    onClick?.();
+    (refOnClick as MouseEventHandler<HTMLButtonElement>)?.(evt);
+  };
+
   return (
     <>
       <button
         className={styles.button}
+        type="button"
         ref={refs.setReference}
-        {...getReferenceProps()}
+        onClick={handleClick}
+        {...rest}
+        {...restReferenceProps}
       >
         <span className={styles.promoCode}>
           Забрать промокод <br /> на скидку {discount}%
@@ -63,13 +79,13 @@ export const PromoCodeButton = ({ discount }: IPromoCodeButtonProps) => {
                 aria-describedby={descriptionId}
                 {...getFloatingProps()}
               >
-                <PromoCode />
                 <h2 id={headingId} className="visuallyHidden">
                   Промокод
                 </h2>
                 <p id={descriptionId} className="visuallyHidden">
                   Промокод на скидку
                 </p>
+                <PromoCode />
               </div>
             </FloatingFocusManager>
           </FloatingOverlay>

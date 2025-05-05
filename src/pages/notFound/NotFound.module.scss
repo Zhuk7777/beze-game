@@ -1,0 +1,47 @@
+.wrapper {
+  margin-block: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  color: $color-pink;
+  text-align: center;
+  font-size: 26px;
+  line-height: 1.45;
+}
+
+.link {
+  position: relative;
+  margin-block-start: 70px;
+  text-decoration: none;
+  font-weight: $fw-bold;
+  background-color: $color-pink;
+  color: white;
+  padding: 16px 34px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.8;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inline-size: 41px;
+    block-size: 46px;
+    top: -60px;
+    left: 0;
+    background-image: url('../../assets/icons/arrow.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
