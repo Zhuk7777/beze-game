@@ -1,0 +1,141 @@
+.wrapper {
+  gap: 48px;
+}
+
+.imageWrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inline-size: 57px;
+    block-size: 56px;
+    top: -78px;
+    left: 19px;
+    background-image: url('../../assets/images/sprinklewhite.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 23px;
+    block-size: 23px;
+    top: -125px;
+    right: 28px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.options {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-inline-size: 216px;
+  margin-block-start: -30px;
+}
+
+.options_final {
+  gap: 49px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 40px;
+    block-size: 40px;
+    top: 57px;
+    left: -33px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inline-size: 47px;
+    block-size: 36px;
+    top: 262px;
+    right: -51px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.options_common {
+  gap: 16px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inline-size: 47px;
+    block-size: 36px;
+    top: 149px;
+    right: -45px;
+    background-image: url('../../assets/images/sprinkleGold.webp');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.text {
+  font-weight: $fw-bold;
+  font-size: 20px;
+  color: $color-pink;
+  inline-size: 290px;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.button {
+  all: unset;
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: $fw-bold;
+  background-color: $color-pink;
+  color: white;
+  padding: 12px 34px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.or {
+  font-size: 20px;
+  font-weight: $fw-bold;
+  color: $color-pink;
+  text-transform: lowercase;
+}
+
+.promoContainer {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 28px;
+  margin-block-start: -5px;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.promoCode {
+  font-size: 14px;
+  font-weight: $fw-normal;
+  color: $color-pink;
+}

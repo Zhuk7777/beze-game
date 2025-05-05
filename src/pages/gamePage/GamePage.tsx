@@ -1,11 +1,12 @@
-import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
-import { Beze } from '../../components/beze/Beze';
-
-import styles from './GamePage.module.scss';
 import classNames from 'classnames';
 
+import { Beze } from '../../components/beze/Beze';
+import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
+
+import styles from './GamePage.module.scss';
+
 export const GamePage = () => {
-  const final = true;
+  const final = false;
   const limit = 1000;
   const count = 1000;
 
