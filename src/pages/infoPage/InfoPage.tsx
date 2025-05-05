@@ -1,37 +1,37 @@
 import classNames from 'classnames';
 
-import SamotatLogo from '../../assets/icons/samokatLogoSmall.svg?react';
 import { Beze } from '../../components/beze/Beze';
+import { ClickerPopup } from '../../modules/clickerPopup/ClickerPopup';
 import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
+import { PromoCodeButton } from '../../modules/promoCodeButton/PromoCodeButton.tsx';
 
 import styles from './InfoPage.module.scss';
 
 export const InfoPage = () => {
   const discount = 10;
-  const final = true;
+  const final = false;
   const lose = false;
   return (
     <PageWrapper className={styles.wrapper}>
       <section className={styles.imageWrapper}>
-        <Beze />
+        <ClickerPopup className={styles.popup}>
+          <div className={styles.popupText}>
+            <p>Молодец! Забирай промокод на скидку 10% в Самокат.</p>
+            <p>
+              А если нажмёшь ещё 2000 раз, получишь промокод от Самокат на
+              скидку 20%
+            </p>
+          </div>
+        </ClickerPopup>
+        <Beze className={styles.image} />
       </section>
       {lose ? (
         <section className={styles.options}>
-          <button className={styles.promoContainer}>
-            <span className={styles.promoCode}>
-              Забрать промокод <br /> на скидку {discount}%
-            </span>
-            <SamotatLogo aria-label="Логотип самоката" width={50} height={50} />
-          </button>
+          <PromoCodeButton discount={discount} />
         </section>
       ) : final ? (
         <section className={classNames(styles.options, styles.options_final)}>
-          <button className={styles.promoContainer}>
-            <span className={styles.promoCode}>
-              Забрать промокод <br /> на скидку {discount}%
-            </span>
-            <SamotatLogo aria-label="Логотип самоката" width={50} height={50} />
-          </button>
+          <PromoCodeButton discount={discount} />
           <p className={styles.text}>
             Продолжай нажимать
             <br />
@@ -50,12 +50,7 @@ export const InfoPage = () => {
             Продолжить
           </button>
           <span className={styles.or}>Или</span>
-          <button className={styles.promoContainer}>
-            <span className={styles.promoCode}>
-              Забрать промокод <br /> на скидку {discount}%
-            </span>
-            <SamotatLogo aria-label="Логотип самоката" width={50} height={50} />
-          </button>
+          <PromoCodeButton discount={discount} />
         </section>
       )}
     </PageWrapper>

@@ -41,6 +41,8 @@
 }
 
 .samokatLogo {
+  color: white;
+
   @media (min-width: $breakpoint-tablet) {
     inline-size: 164px;
     block-size: 24px;

@@ -1,0 +1,38 @@
+.button {
+  all: unset;
+  display: flex;
+  justify-content: space-between;
+  padding-inline-start: 28px;
+  margin-block-start: -5px;
+  align-items: center;
+  gap: 10px;
+  background-color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 0.7;
+  }
+}
+
+.promoCode {
+  font-size: 14px;
+  font-weight: $fw-normal;
+  color: $color-pink;
+}
+
+.dialogOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+  background-color: rgb(0 0 0 / 0.2);
+}
+
+.dialog {
+  inline-size: 100%;
+  max-inline-size: 390px;
+}

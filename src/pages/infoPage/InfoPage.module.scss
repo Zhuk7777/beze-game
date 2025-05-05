@@ -30,6 +30,24 @@
   }
 }
 
+.popup {
+  position: absolute;
+  top: 32px;
+  left: 14px;
+  z-index: 1;
+}
+
+.popupText {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.image {
+  position: relative;
+  z-index: 0;
+}
+
 .options {
   position: relative;
   display: flex;
@@ -124,7 +142,8 @@
   cursor: pointer;
   transition: opacity 0.2s;
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     opacity: 0.8;
   }
 }
@@ -133,32 +152,4 @@
   font-weight: $fw-bold;
   color: $color-pink;
   text-transform: lowercase;
-}
-
-.promoContainer {
-  all: unset;
-  display: flex;
-  justify-content: space-between;
-  padding-inline-start: 28px;
-  margin-block-start: -5px;
-  align-items: center;
-  gap: 10px;
-  background-color: white;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.7;
-  }
-}
-
-.promoCode {
-  font-size: 14px;
-  font-weight: $fw-normal;
-  color: $color-pink;
-
-  @media (min-width: $breakpoint-large) {
-    font-size: 16px;
-  }
 }

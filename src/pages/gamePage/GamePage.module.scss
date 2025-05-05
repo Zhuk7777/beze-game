@@ -63,15 +63,6 @@
   }
 }
 
-.button {
-  all: unset;
-  position: relative;
-  z-index: 0;
-  clip-path: circle(50%);
-  cursor: pointer;
-  padding-block: 5px;
-}
-
 .image {
   cursor: pointer;
   object-fit: cover;
@@ -79,6 +70,21 @@
 
   &:hover {
     filter: drop-shadow(0 0 10px white);
+  }
+}
+
+.button {
+  all: unset;
+  position: relative;
+  z-index: 0;
+  clip-path: circle(50%);
+  cursor: pointer;
+  padding-block: 5px;
+
+  &:focus-visible {
+    .image {
+      filter: drop-shadow(0 0 10px white);
+    }
   }
 }
 

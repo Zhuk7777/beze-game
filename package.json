@@ -22,6 +22,7 @@
     "yarn": ">=1.22"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.27.8",
     "classnames": "^2.5.1",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",

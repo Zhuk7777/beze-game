@@ -1,0 +1,81 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  inline-size: 100%;
+  border-radius: 36px;
+  background-color: white;
+  padding: 66px 21px;
+  color: $color-charcoal;
+}
+
+.logo {
+  color: $color-pink;
+  margin-block-end: 40px;
+}
+
+.title {
+  font-weight: $fw-bold;
+  font-size: 20px;
+  margin-block-end: 17px;
+}
+
+.code {
+  text-align: center;
+  text-transform: uppercase;
+  inline-size: 100%;
+  padding-block: 29px;
+  background-color: $color-light-pink;
+  border: 1px dashed $color-raspberry;
+  border-radius: 6px;
+  font-weight: $fw-medium;
+  font-size: 30px;
+  margin-block-end: 20px;
+
+  &::selection {
+    background-color: $color-charcoal;
+    color: $color-light-pink;
+  }
+}
+
+.copyButton {
+  all: unset;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: opacity 0.2s;
+  cursor: pointer;
+  margin-block-end: 48px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.samokatLink {
+  padding: 13px 27px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: $fw-bold;
+  color: white;
+  background-color: $color-pink;
+  border-radius: 25px;
+  transition: opacity 0.2s;
+  margin-block-end: 40px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.rulesLink {
+  text-decoration: none;
+  color: #828282;
+  text-align: center;
+  transition: opacity 0.2s;
+  line-height: 1.25;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}

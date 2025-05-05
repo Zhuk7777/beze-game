@@ -1,0 +1,71 @@
+.popupWrapper {
+  position: absolute;
+}
+
+.popup {
+  inline-size: 292px;
+  block-size: 238px;
+  background-color: $color-pink;
+  font-size: 20px;
+  font-weight: $fw-bold;
+  text-align: center;
+  color: white;
+  padding: 19px 20px;
+  line-height: 1.25;
+  opacity: 0;
+  transform: scale(0.4);
+  animation: popup-show 0.5s ease forwards;
+  border-radius: 28px;
+}
+
+.wowArrow {
+  position: absolute;
+  top: -87px;
+  right: -2px;
+  opacity: 0;
+  animation: arrow-show-right 0.5s ease 0.2s forwards;
+}
+
+.arrow {
+  position: absolute;
+  bottom: -55px;
+  left: -2px;
+  opacity: 0;
+  animation: arrow-show-left 0.5s ease 0.1s forwards;
+}
+
+@keyframes popup-show {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes arrow-show-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes arrow-show-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
