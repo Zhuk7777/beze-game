@@ -8,14 +8,14 @@ import {
   useIsPreFinalStage,
   useReward,
   useStageEndText,
-} from '../../services/promoStore/lib/hooks.ts';
-import { STAGES } from '../../services/promoStore/lib/stagesData.ts';
+} from '../../services/promoStore/lib/hooks';
+import { STAGES } from '../../services/promoStore/lib/stagesData';
 import { usePromoStore } from '../../services/promoStore/promoStore';
 import {
   proceedToNextStageSelector,
   statusSelector,
   stopGameSelector,
-} from '../../services/promoStore/selectors.ts';
+} from '../../services/promoStore/selectors';
 
 import styles from './InfoPage.module.scss';
 

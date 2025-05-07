@@ -1,4 +1,4 @@
-import { IStage } from './types.ts';
+import { IStage } from './types';
 
 const getStageByCounter = (counter: number, stages: IStage[]) => {
   return (

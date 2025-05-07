@@ -6,13 +6,13 @@ import {
   useIsFinalStage,
   useLimit,
   useReward,
-} from '../../services/promoStore/lib/hooks.ts';
-import { STAGES } from '../../services/promoStore/lib/stagesData.ts';
+} from '../../services/promoStore/lib/hooks';
+import { STAGES } from '../../services/promoStore/lib/stagesData';
 import { usePromoStore } from '../../services/promoStore/promoStore';
 import {
   countSelector,
   incrementSelector,
-} from '../../services/promoStore/selectors.ts';
+} from '../../services/promoStore/selectors';
 
 import styles from './GamePage.module.scss';
 

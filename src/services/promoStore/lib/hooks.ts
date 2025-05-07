@@ -1,8 +1,8 @@
-import { usePromoStore } from '../promoStore.ts';
-import { countSelector } from '../selectors.ts';
+import { usePromoStore } from '../promoStore';
+import { countSelector } from '../selectors';
 
-import getStageByCounter from './getStageByCounter.ts';
-import { STAGES } from './stagesData.ts';
+import getStageByCounter from './getStageByCounter';
+import { STAGES } from './stagesData';
 
 // STAGES можно получать через React Query в хуках
 

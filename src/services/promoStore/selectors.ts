@@ -1,4 +1,4 @@
-import { IPromoStore } from './lib/types.ts';
+import { IPromoStore } from './lib/types';
 
 export const statusSelector = (state: IPromoStore) => state.status;
 
