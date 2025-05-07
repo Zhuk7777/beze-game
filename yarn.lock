@@ -3480,11 +3480,6 @@ yocto-queue@^0.1.0:
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand-computed@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/zustand-computed/-/zustand-computed-2.0.2.tgz#3ede5605f5dcb2cb1d9e63db98d7b9679ecf7810"
-  integrity sha512-G70p9Ve3alqc36p77jHljEJk/UHBbYmaIyZ5zyXXLLR/b1oTh1vG0+3P1rGeWeZyjVZ4fCRfuG9QwB/x5pzC8w==
-
 zustand@^5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/zustand/-/zustand-5.0.4.tgz#33af161f1e337854ccd8b711ef9e92545d6ae53f"

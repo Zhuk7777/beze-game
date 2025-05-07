@@ -4,19 +4,30 @@ import { Beze } from '../../components/beze/Beze';
 import { ClickerPopup } from '../../modules/clickerPopup/ClickerPopup';
 import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
 import { PromoCodeButton } from '../../modules/promoCodeButton/PromoCodeButton';
+import {
+  useIsPreFinalStage,
+  useReward,
+  useStageEndText,
+} from '../../services/promoStore/lib/hooks.ts';
+import { STAGES } from '../../services/promoStore/lib/stagesData.ts';
 import { usePromoStore } from '../../services/promoStore/promoStore';
+import {
+  proceedToNextStageSelector,
+  statusSelector,
+  stopGameSelector,
+} from '../../services/promoStore/selectors.ts';
 
 import styles from './InfoPage.module.scss';
 
 export const InfoPage = () => {
-  const {
-    stageEndText,
-    reward,
-    status,
-    isPreFinalStage,
-    proceedToNextStage,
-    stopGame,
-  } = usePromoStore();
+  const isPreFinalStage = useIsPreFinalStage();
+  const stageEndText = useStageEndText();
+  const reward = useReward();
+
+  const status = usePromoStore(statusSelector);
+
+  const proceedToNextStage = usePromoStore(proceedToNextStageSelector);
+  const stopGame = usePromoStore(stopGameSelector);
 
   const promoButton = <PromoCodeButton discount={reward} onClick={stopGame} />;
 
@@ -24,7 +35,7 @@ export const InfoPage = () => {
     <button
       className={styles.button}
       type="button"
-      onClick={proceedToNextStage}
+      onClick={() => proceedToNextStage(STAGES)}
       disabled={status === 'game-end'}
     >
       Продолжить

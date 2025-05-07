@@ -1,79 +1,69 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { createComputed } from 'zustand-computed';
 
-import { STAGES } from './lib/stageData';
-import { IComputedStore, IPromoStore, TPromoStage } from './lib/types';
-
-const computed = createComputed(
-  (state: IPromoStore): IComputedStore => ({
-    limit: STAGES[state.stage].limit,
-    stageEndText: STAGES[state.stage].stageEndText,
-    reward: STAGES[state.stage].reward,
-    isPreFinalStage: state.stage === 3,
-    isFinalStage: state.stage === 4,
-  })
-);
+import getStageByCounter from './lib/getStageByCounter';
+import handleFinalStage from './lib/handleFinalStage';
+import isFinalStage from './lib/isFinalStage';
+import isGameActive from './lib/isGameActive';
+import { IPromoStore } from './lib/types';
 
 export const usePromoStore = create<IPromoStore>()(
-  computed(
-    devtools(
-      persist(
-        (set, get) => ({
-          count: 0,
-          stage: 1,
-          status: 'game',
-          finalStageStartedAt: null,
+  devtools(
+    /**
+     * Для выполнения тестового задания используется персистинг в LocalStorage,
+     * но с ним могут быть проблемы на iOS (в приватном режиме и WebView),
+     * по этому в реальности персистинг этого небольшого состояния
+     * лучше сделать в cookies.
+     **/
+    persist(
+      (set, get) => ({
+        count: 0,
+        status: 'game',
+        finalStageStartedAt: null,
 
-          increment: () => {
-            const { count, stage, status, finalStageStartedAt } = get();
-            if (status !== 'game') return;
+        increment: (stages) => {
+          const { count, status, finalStageStartedAt } = get();
 
-            const limit = STAGES[stage].limit;
-            const nextCount = count + 1;
+          if (!isGameActive(status)) {
+            return;
+          }
 
-            if (stage === 4) {
-              const now = Date.now();
-              const timePassed = finalStageStartedAt
-                ? now - finalStageStartedAt
-                : null;
+          const { stageNumber, limit } = getStageByCounter(count, stages);
+          const nextCount = count + 1;
 
-              if (timePassed !== null) {
-                if (timePassed >= 60_000) {
-                  set({ status: 'game-lost' });
-                } else {
-                  if (nextCount >= limit) {
-                    set({ status: 'game-won' });
-                  } else {
-                    set({ count: nextCount });
-                  }
-                }
-              }
-            } else if (nextCount >= limit) {
-              set({ status: 'stage-end' });
-            } else {
-              set({ count: nextCount });
-            }
-          },
+          if (isFinalStage(stageNumber, stages)) {
+            const currentTime = Date.now();
+            const result = handleFinalStage({
+              nextCount,
+              finalStageStartedAt,
+              currentTime,
+              limit,
+            });
+            set(result);
+          } else if (nextCount >= limit) {
+            set({ status: 'stage-end' });
+          } else {
+            set({ count: nextCount });
+          }
+        },
 
-          proceedToNextStage: () => {
-            const { stage } = get();
-            if (stage < 4) {
-              set({
-                stage: (stage + 1) as TPromoStage,
-                count: 0,
-                status: 'game',
-                finalStageStartedAt: stage === 3 ? Date.now() : null,
-              });
-            }
-          },
+        proceedToNextStage: (stages) => {
+          const { count } = get();
+          const { stageNumber } = getStageByCounter(count, stages);
 
-          stopGame: () => set({ status: 'game-end' }),
-        }),
-        {
-          name: 'promo-clicker-store',
-        }
-      )
+          set({
+            count: count + 1,
+            status: 'game',
+            finalStageStartedAt:
+              stageNumber === stages.length - 1 ? Date.now() : null,
+          });
+        },
+
+        stopGame: () => set({ status: 'game-end' }),
+      }),
+      {
+        name: 'promo-clicker-store',
+      }
     )
   )
 );

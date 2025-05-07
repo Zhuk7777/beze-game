@@ -1,31 +1,31 @@
 import { PropsWithChildren } from 'react';
 import { Navigate } from 'react-router-dom';
 
+import { IStatusGame } from '../../services/promoStore/lib/types';
 import { usePromoStore } from '../../services/promoStore/promoStore';
 
+type TPage = 'game' | 'winner' | 'info';
+
+const pageByStatus: Record<IStatusGame, TPage> = {
+  'game': 'game',
+  'game-won': 'winner',
+  'stage-end': 'info',
+  'game-lost': 'info',
+  'game-end': 'info',
+};
+
 interface IProtectedRouteProps {
-  page: 'game' | 'winner' | 'info';
+  page: TPage;
 }
 
 export const ProtectedRoute = ({
   page,
   children,
 }: PropsWithChildren<IProtectedRouteProps>) => {
-  const status = usePromoStore((state) => state.status);
+  const mustPage = usePromoStore(({ status }) => pageByStatus[status]);
 
-  if (page !== 'game' && status === 'game') {
-    return <Navigate to="/game" replace />;
-  }
-
-  if (page !== 'winner' && status === 'game-won') {
-    return <Navigate to="/winner" replace />;
-  }
-
-  if (
-    page !== 'info' &&
-    (status === 'stage-end' || status === 'game-lost' || status === 'game-end')
-  ) {
-    return <Navigate to="/info" replace />;
+  if (page !== mustPage) {
+    return <Navigate to={`/${mustPage}`} replace />;
   }
 
   return children;

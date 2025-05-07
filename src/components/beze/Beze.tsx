@@ -12,6 +12,7 @@ export const Beze = ({ className }: IBezeProps) => {
       alt="Безе"
       width={320}
       height={298}
+      draggable="false"
     />
   );
 };

@@ -2,12 +2,28 @@ import classNames from 'classnames';
 
 import { Beze } from '../../components/beze/Beze';
 import { PageWrapper } from '../../modules/pageWrapper/PageWrapper';
+import {
+  useIsFinalStage,
+  useLimit,
+  useReward,
+} from '../../services/promoStore/lib/hooks.ts';
+import { STAGES } from '../../services/promoStore/lib/stagesData.ts';
 import { usePromoStore } from '../../services/promoStore/promoStore';
+import {
+  countSelector,
+  incrementSelector,
+} from '../../services/promoStore/selectors.ts';
 
 import styles from './GamePage.module.scss';
 
 export const GamePage = () => {
-  const { count, limit, reward, isFinalStage, increment } = usePromoStore();
+  const limit = useLimit();
+  const isFinalStage = useIsFinalStage();
+  const reward = useReward();
+
+  const count = usePromoStore(countSelector);
+
+  const increment = usePromoStore(incrementSelector);
 
   return (
     <PageWrapper className={styles.wrapper}>
@@ -17,7 +33,7 @@ export const GamePage = () => {
             {count}/{limit}
           </div>
         )}
-        <button className={styles.button} onClick={increment}>
+        <button className={styles.button} onClick={() => increment(STAGES)}>
           <Beze className={styles.image} />
         </button>
       </div>
